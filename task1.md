@@ -6,4 +6,4 @@ Requiements Elicitaion
 5) Is there an expiry date for a prescrption?
 6) If a patient is prescribed multiple doses, can all doses be dispensed at once?
 7) Does the system enforce different dispensing rules for different medication forms?
-8) Does the system verify a patient's identity at the of dispensing medicine?
+8) Is every dispensing isntnace associated with exactly one mediciation?
