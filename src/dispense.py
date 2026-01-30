@@ -17,7 +17,8 @@ class DispenseEvent:
             quantity: Number of units dispensed. Must be a positive integer.
 
         """
-
+        if dose_mg.startswith("-"):
+            raise ValueError("The dose must be a positive value.")
         if not dose_mg.endswith("mg"):
             raise ValueError("The dose is not specified by right units(mg).")
        
@@ -27,7 +28,7 @@ class DispenseEvent:
             if num_Value <= 0:
                 raise ValueError("The dose must be a positive value.")
         except ValueError:
-            raise ValueError("Dose must contain a number")
+            raise ValueError(f"Dose '{dose_mg}' contains invalid  unit of dose or is not a number")
 
         
         if not isinstance (quantity, int) or quantity <= 0: 
