@@ -1,6 +1,6 @@
 import sys
 import os
-
+#To run the test cases I used: python tests/test_requirements.py
 path = os.path.abspath(os.path.join(os.path.dirname(__file__), '..', 'src'))
 sys.path.append(path)
 
