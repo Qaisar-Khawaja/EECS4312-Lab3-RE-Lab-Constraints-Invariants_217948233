@@ -119,5 +119,24 @@ def run_tests():
     except Exception as e:
         print(f"Unexpected Error: {e}")
 
+    #Test 11
+    print("Test 11: Drug–drug interaction check")
+    interaction_db = {
+    ("advil", "warfarin"),
+    ("ibuprofen", "warfarin")
+}
+    events = []
+
+    event1 = DispenseEvent("Patient100", "Warfarin", "5mg", 1, dose_limit, "2026-01-30")
+    events.append(event1)
+
+    event2 = DispenseEvent("Patient100", "Advil", "200mg", 1, dose_limit, "2026-01-30")
+
+    if not DispenseEvent.invariant_holds(events, event2, interaction_db):
+        print("Pass: Blocked dispensing due to drug–drug interaction")
+    else:
+        print("Fail: Allowed interacting medications")
+
+
 if __name__ == "__main__":
     run_tests()

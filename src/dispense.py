@@ -6,6 +6,8 @@ class DispenseEvent:
 
     # TODO Task 3: Encode and enforce input constraints (e.g., valid dose, quantity, identifiers)
     def __init__(self, patient_id, medication, dose_mg, quantity, dose_limit, date_of_Event):
+    #I changed parameters: I added dose_limit because we need to check if a user reached daily dose limit
+    #I also added date of event because we want to check if a person already dispensed same medicine before on same day
         """
         Initialize a new DispenseEvent.
 
@@ -44,10 +46,15 @@ class DispenseEvent:
         self.quantity = quantity
         self.dose_limit = dose_limit
         self.date_of_Event = date_of_Event
-        
+    
+    def has_interaction(med1, med2, interaction_db):
+        a = med1.lower()
+        b = med2.lower()
+        return (a, b) in interaction_db or (b, a) in interaction_db
 
     # TODO Task 4: Define and check system invariants 
-    def invariant_holds(existing_events, new_event):
+    def invariant_holds(existing_events, new_event,interaction_db=None):
+    # I added new parameter interaction_db to see interaction of medicines
         """
         Check whether adding a new dispense event preserves all system invariants.
 
@@ -65,8 +72,14 @@ class DispenseEvent:
                 event.date_of_Event == new_event.date_of_Event):
                 return False
 
-        if not str(new_event.dose_mg).endswith("mg"):
-            return False
+            if interaction_db:
+                if (event.patient_id == new_event.patient_id and
+                    event.date_of_Event == new_event.date_of_Event and
+                    DispenseEvent.has_interaction(
+                        event.medication,
+                        new_event.medication,
+                        interaction_db)):
+                    return False
             
 
         return True
