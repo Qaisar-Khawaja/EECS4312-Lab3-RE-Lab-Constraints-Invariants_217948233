@@ -1,4 +1,3 @@
-#static list of events here = []
 class DispenseEvent:
     """
     Represents a single medication dispensing event for a patient.
