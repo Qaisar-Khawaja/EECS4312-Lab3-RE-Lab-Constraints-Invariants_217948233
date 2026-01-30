@@ -5,5 +5,5 @@ Requiements Elicitaion
 4) Does the system support prescription refills?
 5) Is there an expiry date for a prescrption?
 6) If a patient is prescribed multiple doses, can all doses be dispensed at once?
-7) Does the system enforce different dispensing rules for different medication forms?
+7) Do different dispensing rules exist for different medication forms?
 8) Is every dispensing instance associated with exactly one mediciation?
