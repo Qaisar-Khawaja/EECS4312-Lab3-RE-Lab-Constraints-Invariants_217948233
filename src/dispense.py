@@ -6,7 +6,7 @@ class DispenseEvent:
     """
 
     # TODO Task 3: Encode and enforce input constraints (e.g., valid dose, quantity, identifiers)
-    def __init__(self, patient_id, medication, dose_mg, quantity, dose_limit):
+    def __init__(self, patient_id, medication, dose_mg, quantity, dose_limit, date_of_Event):
         """
         Initialize a new DispenseEvent.
 
@@ -43,6 +43,7 @@ class DispenseEvent:
         self.dose_mg = dose_mg
         self.quantity = quantity
         self.dose_limit = dose_limit
+        self.date_of_Event = date_of_Event
         
 
     # TODO Task 4: Define and check system invariants 
@@ -60,14 +61,12 @@ class DispenseEvent:
         """
         for event in existing_events: 
             if (event.patient_id == new_event.patient_id and 
-                event.medication == new_event.medication) and
-                event.date == new_event.date):
+                event.medication == new_event.medication and
+                event.date_of_Event == new_event.date_of_Event):
                 return False
 
-            if dose_mg.endswith("mg"):
-                number_part = dose_str.replace("mg", "")
-            if number_part.isdigit():
-                return True 
+        if not str(new_event.dose_mg).endswith("mg"):
+            return False
             
 
         return True
