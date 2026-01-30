@@ -1,23 +1,25 @@
-<How long the dispense record must be kept in the system?, Constraint>
-It is a type of policy of the pharmacy to take certain record for a limited time.
 
-<What specific information of a patient needs to be captured?, Functional Requirment>
-It is a fucntional requirment because system needs to capture data and needs to know exactly which fields.
 
-<Should the system check drug to drug and drug to allergy interactions before dispensing?, Functional Requirement>
-This is the system's behaviour checking for interactions hence ucntional requriement.
+**<How long the dispense record must be kept in the system?, Constraint>**  
+Keeping records for a set of time is not something a programmer picks, but it is defined by the pharmacy policy. Therefore, this comes under a constraint.
 
-<Does the system support prescription refills and if so, then how many refills are allowed?, Constraint>
-Supporting certain features and then we are asking how many which is a limit so cosntraint. 
+**<What specific information of a patient needs to be captured?, Functional Requirement>**  
+This describes a task or behaviour of the dispenser system where the data of patient needs to be stored and managed. Therefore, this comes under functional requirement.
 
-<Is there an expiry date for a prescrption?, Constraint >
-It is als oa constraint because a prescription could be validated for a time limit. A type of restriction. 
+**<Should the system check drug to drug and drug to allergy interactions before dispensing?, Functional Requirement>**  
+This is a system behaviour or feature. System is doing a task to assist user. Therefore, it is a functional requirement. 
 
-<If a patient is prescribed multiple doses, can all doses be dispensed at once?, Constraint>
-This is a limit on dispensing medicine so it is a constraint. Restricting time and quantity.
+**<Does the system support prescription refills?, Functional Requirement>**  
+The system must have a feature to handle refills. This is a system behaviour of the dispensing workflow. It is a functional requirement. 
 
-<Does the system enforce different dispensing rules for different medication forms?, Functional Requirement>
-Requires the ysstem to paply diff logic, it isn't limiting but addibf onto it. 
+**<Is there an expiry date for a prescrption?, Constraint>**  
+This is a rule defined by the environment (law/policy) and the system needs to follow that. Therefore, it is a constraint.
 
-<Is every dispensing isntnace associated with exactly one mediciation?, Invariant >
-This is a type of question which is always true like either its a yes or no which will remain true. 
+**<If a patient is prescribed multiple doses, can all doses be dispensed at once?, Functional Requirement>**  
+Dispensing all medicine at once is a way how system handles the dispensing process either one by one or all at once. Therefore, it is a functional requirement.
+
+**<Do different dispensing rules exist for different medication forms?, Constraint>**  
+These are rules or regulations. The pharmacy/environment forces different medication types (pills or liquid) to be treated differently. Therefore, it is a constraint. 
+
+**<Is every dispensing instance associated with exactly one medication?, Invariant>**  
+A dispensing event must be attached to a medicine because an empty event without medicine attached to it makes no sense and would break the logic. Therefore, it is an invariant. 
